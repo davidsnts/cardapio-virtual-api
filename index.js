@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+const connectToDatabase = require('./src/database/database');
 const PORT = 3001;
 
 const app = express();
@@ -11,4 +13,7 @@ app.get('/', (req, res) =>{
 
 app.listen(PORT, () => {
     console.log(`Api executando na porta http://localhost:${PORT} `);
-})
+});
+
+connectToDatabase();
+
