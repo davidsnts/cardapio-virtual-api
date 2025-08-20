@@ -3,6 +3,8 @@ require('dotenv').config();
 const connectToDatabase = require('./src/database/database');
 
 const usuario = require('./src/router/usuario.router');
+const auth = require('./src/router/auth.router'); 
+
 
 const PORT = 3001;
 
@@ -11,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/usuario", usuario);
-
+app.use("/login", auth)
 app.get('/', (req, res) =>{
     res.send({"message": "Bem vindo a cardapio-virtual-api"});
 });
