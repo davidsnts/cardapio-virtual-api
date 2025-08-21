@@ -1,8 +1,8 @@
 const pedidoService = require('../service/pedido.service');
 
-const findPedidoByIdController = async (id) => {
+const findPedidoByIdController = async (req,res) => {
     try {
-        return res.status(200).send(await pedidoService.findPedidoByIdService(id));
+        return res.status(200).send(await pedidoService.findPedidoByIdService(req.params.id));
     } catch (error) {
         console.log(error);
         return res.status(500).send({"message":"Erro ao buscar pedido"})

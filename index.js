@@ -5,6 +5,7 @@ const connectToDatabase = require('./src/database/database');
 const usuario = require('./src/router/usuario.router');
 const auth = require('./src/router/auth.router'); 
 const pedido = require('./src/router/pedido.router');
+const produto = require('./src/router/produto.router')
 
 
 const PORT = 3001;
@@ -16,6 +17,8 @@ app.use(express.json());
 app.use("/usuario", usuario);
 app.use("/login", auth);
 app.use("/pedido", pedido);
+app.use("/produto", produto);
+
 app.get('/', (req, res) =>{
     res.send({"message": "Bem vindo a cardapio-virtual-api"});
 });
