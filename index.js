@@ -11,13 +11,14 @@ const produto = require('./src/router/produto.router')
 
 const PORT = 3001;
 
+const app = express();
+
 app.use(cors({
   origin: "*",          
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: false    // se precisar usar cookies/sessão, isso deve ser true e o origin não pode ser "*"
 }));
 
-const app = express();
 
 app.use(express.json());
 
