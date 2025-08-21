@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const connectToDatabase = require('./src/database/database');
+const cors = require('cors');
 
 const usuario = require('./src/router/usuario.router');
 const auth = require('./src/router/auth.router'); 
@@ -9,6 +10,12 @@ const produto = require('./src/router/produto.router')
 
 
 const PORT = 3001;
+
+app.use(cors({
+  origin: "*",          
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: false    // se precisar usar cookies/sessão, isso deve ser true e o origin não pode ser "*"
+}));
 
 const app = express();
 
